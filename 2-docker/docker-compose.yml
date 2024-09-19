@@ -1,14 +1,15 @@
 version: '3.8'
 services:
   backend:
-    build: ./backend
+    # build: ./backend
+    image: zape/devops2024-backend
     ports:
       - "8000:8000"
     volumes:
       - ./backend/app:/code/app
 
   frontend:
-    build: ./frontend
+    image: zape/devops2024-frontend
     ports:
       - "3000:3000"
     volumes:
