@@ -1,0 +1,61 @@
+## crear el action runner para el ci/cd
+```bash
+mkdir -p .github/workflows
+touch .github/workflows/cicd.yml
+```
+
+## editar el archivo `cicd.yml`
+```yaml
+name: CICD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout del repositorio
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Iniciar sesión en Docker Hub
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3.3.0
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # Construir la imagen Docker backend
+      - name: Build Docker image backend
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/devops2024-backend:latest backend/
+			
+			# Construir la imagen Docker frontend
+      - name: Build Docker image frontend
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/devops2024-frontend:latest frontend/
+
+      # Subir la imagen de backend a Docker Hub 
+      - name: Push Docker image backend a Docker Hub
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/devops2024-backend:latest
+      
+      -# Subir la imagen de backend a Docker Hub 
+        name: Push Docker image frontend a Docker Hub
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/devops2024-frontend:latest
+  cd:
+    runs-on: self-hosted
+    needs: build
+
+    steps:
+      # Checkout del repositorio
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # run
+      - name: self-hosted
+        run: |
+          docker compose up -d
+
+```

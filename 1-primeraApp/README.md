@@ -1,14 +1,10 @@
 # DDesarrollando una Aplicación de Página Única con FastAPI y React
 
-### ¿Quieres aprender a construir esto?
-
-Consulta el [artículo](https://testdriven.io/blog/fastapi-react/).
-
 ## ¿Quieres usar este proyecto?
 
 1. Haz un Fork/Clona el repositorio
 
-1. Ejecuta la aplicación FastAPI del lado del servidor en una ventana de terminal:
+2. Ejecuta la aplicación FastAPI del lado del servidor en una ventana de terminal:
 
     ```sh
     $ cd backend
@@ -20,7 +16,7 @@ Consulta el [artículo](https://testdriven.io/blog/fastapi-react/).
 
     Navega a [http://localhost:8000](http://localhost:8000)
 
-1. Ejecuta la aplicación React del lado del cliente en una ventana de terminal diferente:
+3. Ejecuta la aplicación React del lado del cliente en una ventana de terminal diferente:
 
     ```sh
     $ cd frontend
