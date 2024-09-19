@@ -23,11 +23,11 @@ jobs:
 
       # Construir la imagen Docker backend
       - name: Build Docker image backend
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/devops2024-backend:latest 1-docker/backend/
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/devops2024-backend:latest 2-docker/backend/
         
       # Construir la imagen Docker frontend
       - name: Build Docker image frontend
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/devops2024-frontend:latest 1-docker/frontend/
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/devops2024-frontend:latest 2-docker/frontend/
 
       # Subir la imagen de backend a Docker Hub 
       - name: Push Docker image backend a Docker Hub
