@@ -49,4 +49,4 @@ jobs:
       # run
       - name: self-hosted
         run: |
-          docker compose up 2-docker/docker-compose.yml
+          docker compose -f 2-docker/docker-compose.yml -d up
