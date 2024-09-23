@@ -5,8 +5,8 @@ FROM python:3.8-slim
 WORKDIR /code
 
 # Copy the current directory contents into the container at /code
-COPY ../../1-primeraApp/backend/app /code/app
-COPY ../../1-primeraApp/backend/requirements.txt /code/
+COPY ./app /code/app
+COPY ./requirements.txt /code/
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir --upgrade -r requirements.txt

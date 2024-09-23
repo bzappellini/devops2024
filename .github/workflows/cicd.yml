@@ -37,16 +37,16 @@ jobs:
       - name: Push Docker image frontend a Docker Hub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/devops2024-frontend:latest
 
-  cd:
-    runs-on: self-hosted
-    needs: build
-
-    steps:
-      # Checkout del repositorio
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      # run
-      - name: self-hosted
-        run: |
-          docker compose -f 2-docker/docker-compose.yml -d up
+#  cd:
+#    runs-on: self-hosted
+#    needs: build
+#
+#    steps:
+#      # Checkout del repositorio
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      # run
+#      - name: self-hosted
+#        run: |
+#         docker compose -f 2-docker/docker-compose.yml -d up
